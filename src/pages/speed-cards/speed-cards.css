@@ -1,0 +1,49 @@
+.card-scene {
+    width: 128px;
+    height: 128px;
+    perspective: 400px;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    color: white;
+    text-align: center;
+    image-rendering: pixelated;
+}
+.card-face:nth-child(2) {
+    transform: rotateY(180deg) 
+}
+
+
+
+@keyframes fly-in-out {
+    0% {
+        transform: translateY(100vh);
+    }
+    15% {
+        transform: translateY(0);
+    }
+    85% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-100vh);
+    }
+}
+
+.fly-in-out {
+    animation: fly-in-out 4s cubic-bezier(1, 0, 0, 1) infinite;
+}
